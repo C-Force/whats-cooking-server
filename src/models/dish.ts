@@ -9,9 +9,9 @@ const dishSchema = new Schema({
   name: { type: String, required: true },
   image: { type: String, required: true },
   nurition_facts:{
-    serving_size: { type: String, required: true },
-    calories: Number,
-    claories_from_fat: Number,
+    serving_size: { type: { type: String, weight: Number }, required: true },
+    calories: nutritionAmountSchema,
+    claories_from_fat: nutritionAmountSchema,
     saturated_fat: nutritionAmountSchema,
     cholesterol: nutritionAmountSchema,
     sodium: nutritionAmountSchema,

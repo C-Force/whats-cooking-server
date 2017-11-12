@@ -7,7 +7,7 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   Dish.find()
   .select('image vegetarian vegan name cafe location mealtime')
-  .skip(Number(req.query.page) * Number(req.query.pagecount))
+  .skip(Number(req.query.offset) + Number(req.query.page) * Number(req.query.pagecount))
   .limit(Number(req.query.pagecount))
   .exec((err, doc) => {
     if (err) throw err;
