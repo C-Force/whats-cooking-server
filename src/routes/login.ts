@@ -8,10 +8,11 @@ const router = express.Router();
 
 router.route('/')
 .post((req, res, next) => {
+  console.log(req.body);
   if(!req.body.email || !req.body.password) {
     let error = new Error('Email or Password can\'t be blank');
     error['status'] = 400;
-    next(error);
+    return next(error);
   } 
   passport.authenticate('local', (err, user, info) => {
     if(err) {

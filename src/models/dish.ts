@@ -5,11 +5,16 @@ const nutritionAmountSchema = new Schema({
   daily_value: Number,
 });
 
+const servingSize = new Schema({
+  type: String,
+  weight: Number,
+})
+
 const dishSchema = new Schema({
   name: { type: String, required: true },
   image: { type: String, required: true },
   nurition_facts:{
-    serving_size: { type: { type: String, weight: Number }, required: true },
+    serving_size: servingSize,
     calories: nutritionAmountSchema,
     claories_from_fat: nutritionAmountSchema,
     saturated_fat: nutritionAmountSchema,
